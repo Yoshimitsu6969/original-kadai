@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrefecturesTable extends Migration
+class CreateRestaurantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,18 @@ class CreatePrefecturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('prefectures', function (Blueprint $table) {
+        Schema::create('restaurants', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->unsignedBigInteger('area_group_id');
+            $table->string("phoneNumber");
+            $table->string("email");
+            $table->string("address");
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('prefecture_id');
             $table->timestamps();
             
-            $table->foreign('area_group_id')->references('id')->on('area_groups');
+            
+            $table->foreign('prefecture_id')->references('id')->on('prefectures');
         });
     }
 
@@ -30,6 +35,6 @@ class CreatePrefecturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prefectures');
+        Schema::dropIfExists('restaurants');
     }
 }
