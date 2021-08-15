@@ -19,7 +19,7 @@ class CreatePrefecturesTable extends Migration
             $table->unsignedBigInteger('area_group_id');
             $table->timestamps();
             
-            $table->foreign('area_group_id')->references('id')->on('area_groups');
+            $table->foreign('area_group_id')->references('id')->on('area_groups')->onDelete('cascade');
         });
     }
 

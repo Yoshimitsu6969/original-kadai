@@ -15,7 +15,7 @@ class AreaGroupsTableSeeder extends Seeder
 
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('area_groups')->truncate();
         
         DB::table('area_groups')->insert([
@@ -49,7 +49,7 @@ class AreaGroupsTableSeeder extends Seeder
         DB::table('area_groups')->insert([
             'name' => '九州地方',
          ]);
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
          
     }
